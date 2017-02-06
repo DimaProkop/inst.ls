@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
@@ -16,17 +16,17 @@ public class User implements Serializable{
     private Long id;
 
     @Column
-    private String name;
+    private String login;
 
     @Column
-    private String surname;
+    private String password;
 
     public User() {
     }
 
-    public User(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 
     public Long getId() {
@@ -37,19 +37,19 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
