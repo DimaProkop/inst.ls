@@ -26,8 +26,9 @@ public class IndexController {
     private UserService userService;
 
     @RequestMapping(path = "/get", method = RequestMethod.GET)
-    public @ResponseBody List<Message> getMsg() {
-        return this.userService.test();
+    public ResponseEntity getMsg() {
+        List<Message> messages = userService.test();
+        return new ResponseEntity(messages, HttpStatus.OK);
     }
 
 
