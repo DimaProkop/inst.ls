@@ -2,6 +2,8 @@ package com.itools.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dmitry on 6.2.17.
@@ -21,12 +23,16 @@ public class User implements Serializable {
     @Column
     private String password;
 
+    @OneToMany(mappedBy = "user")
+    private List<Url> urls;
+
     public User() {
     }
 
     public User(String login, String password) {
         this.login = login;
         this.password = password;
+        this.urls = new ArrayList<>();
     }
 
     public Long getId() {
@@ -51,5 +57,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Url> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<Url> urls) {
+        this.urls = urls;
     }
 }
